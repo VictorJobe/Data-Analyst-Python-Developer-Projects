@@ -141,12 +141,5 @@ JOIN Person.Person P
     ON P.BusinessEntityID = S.SalesPersonID
 ORDER BY S.SalesPersonID, S.SalesYear;
 
---QUERY 6
---Write a query that displays for each rank in the company, 
---the number of male employees and the number of female employees.
 
-SELECT OrganizationLevel,M AS "Male",F AS "Female"
-FROM (
-	SELECT OrganizationLevel,Gender
-	FROM HumanResources.Employee) E
 	PIVOT(COUNT(Gender)FOR Gender IN([M],[F]))PIV
